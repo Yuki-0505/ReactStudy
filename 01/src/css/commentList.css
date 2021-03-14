@@ -1,0 +1,10 @@
+/* 默认为 :local(.title)，模块化 */
+.title {
+  color: red;
+  font-size: 35px;
+}
+
+/* 全局生效，不会被模块化 */
+:global(.test) {
+  font-style: italic;
+}
