@@ -1,6 +1,8 @@
 import React from 'react'
 import CommentItem from '@/components/CommentItem'
-import styles from '@/css/commentList.css'
+import styles from '@/css/commentList.scss'
+
+import 'bootstrap/dist/css/bootstrap.css'
 
 export default class CommentList extends React.Component {
   constructor(props) {
@@ -23,6 +25,7 @@ export default class CommentList extends React.Component {
     return <div>
       <h1 className={styles.title}>评论列表</h1>
       {/* <h1 style={this.styles.title}>评论列表</h1> */}
+      <button className='btn btn-primary'>发送</button>
       {this.state.list.map(item => <CommentItem {...item} key={item.id} />)}
     </div>
   }

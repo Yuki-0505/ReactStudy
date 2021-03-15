@@ -18,7 +18,9 @@ module.exports = {
     // 配置第三方loader
     rules: [
       {test: /\.js$|\.jsx$/, use: 'babel-loader', exclude: /node_modules/},
-      {test: /\.css$/, use: ['style-loader', {loader: 'css-loader', options: {modules: {localIdentName: '[path][name]-[local]-[hash:5]'}}}]}
+      {test: /\.css$/, use: ['style-loader', 'css-loader']},
+      {test: /\.(ttf|woff|woff2|eot|svg)$/, 'use': 'url-loader'},
+      {test: /\.scss$/, use: ['style-loader', {loader: 'css-loader', options: {modules: {localIdentName: '[path][name]-[local]-[hash:5]'}}}]}
     ]
   },
   resolve: {

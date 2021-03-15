@@ -115,3 +115,39 @@ module.exports = {
   }
 }
 ```
+
+## bootstrap
+```bash
+npm install bootstrap@3.3.7 -D
+# 处理字体文件的loader
+npm install url-loader file-loader -D
+```
+> `webpack.config.js`
+```javascript
+module.exports = {
+  module: {
+    // 配置第三方loader
+    rules: [
+      {test: /\.(ttf|woff|woff2|eot|svg)$/, 'use': 'url-loader'}
+    ]
+  }
+}
+```
+
+## scss,less
+> 为解决bootstrap被模块化的问题，将自己的style改为scss或less，仅对scss或less模块化
+```bash
+npm install sass-loader node-sass -D
+```
+> `webpack.config.js`
+```javascript
+module.exports = {
+  module: {
+    // 配置第三方loader
+    rules: [
+      {test: /\.css$/, use: ['style-loader', 'css-loader']},
+      {test: /\.scss$/, use: ['style-loader', {loader: 'css-loader', options: {modules: {localIdentName: '[path][name]-[local]-[hash:5]'}}}]}
+    ]
+  }
+}
+```
